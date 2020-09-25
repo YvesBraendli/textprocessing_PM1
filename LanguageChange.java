@@ -9,11 +9,19 @@
  */
 public class LanguageChange
 {
+    /*
+     * Constructor for the LanguageChange class
+     * 
+     * @param
+     */
     public LanguageChange()
     {
 
     }
 
+    /*
+     * Changes the language from 
+     */
     public void switchLanguage()
     {
 

@@ -18,6 +18,12 @@ public class GameSimulation
         
     }
 
+    /*
+     * playGame starts a Game of TicTacToe 
+     * and is the method that inputs the fake player data into the inputMove() method of the GameBoard class.
+     * 
+     * @param
+     */
     public void playGame()
     {
 
