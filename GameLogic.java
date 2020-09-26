@@ -10,7 +10,7 @@
 public class GameLogic
 {
     /*
-     * Constructor for the GameLogic class
+     * Constructor for the GameLogic class.
      * 
      * @param
      */   
@@ -21,8 +21,8 @@ public class GameLogic
     
     /*
      * Checks if move inputed is valid, following these rules:
-     *  An input must be a value between 1-9
-     *  An input is not allowed in a field, which is already filled
+     *  An input must be a value between 1-9.
+     *  An input is not allowed in a field, which is already filled.
      *  
      *  @param 
      */
@@ -32,7 +32,7 @@ public class GameLogic
     }
     
     /*
-     * Checks for either a winning gamestate or a draw
+     * Checks for either a winning gamestate or a draw.
      * 
      * @param
      */

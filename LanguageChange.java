@@ -9,18 +9,22 @@
  */
 public class LanguageChange
 {
+    private boolean language;
     /*
-     * Constructor for the LanguageChange class
+     * Constructor for the LanguageChange class.
      * 
-     * @param
+     * @param   language    false for english, true for german
      */
     public LanguageChange()
     {
-
+        language = false;
     }
 
     /*
-     * Changes the language from 
+     * Returns a boolean which is set for true if german is chosen
+     * and false if english is chosen.
+     * 
+     * @param
      */
     public void switchLanguage()
     {

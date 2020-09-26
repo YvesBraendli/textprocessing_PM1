@@ -11,10 +11,19 @@
 
 public class GameBoard
 {
-    
+    private int field1;
+    private int field2;
+    private int field3;
+    private int field4;
+    private int field5;
+    private int field6;
+    private int field7;
+    private int field8;
+    private int field9;
+    private int turnCount;
     
     /*
-     * Constructor for the GameBoard class
+     * Constructor for the GameBoard class.
      * 
      * @param
      */
@@ -22,19 +31,33 @@ public class GameBoard
     {
     
     }
-
+    
     /*
-     *  
+     * Prints out an empty field and asks for a players move.
+     * 
+     * @param 
      */
-    public void initializeBoard()
-    {
-
+    public void startGame()
+    { 
+        
     }
     
+    /*
+     * Takes user input for one of the nine fields.
+     * 
+     * @param   move    a value between 1-9 to fill a field on the board.
+     * @param   player  either "X" or "O" to indicate, which player is making a move.
+     */
     public void inputMove(){
         
     }
     
+    /*
+     * Saves the move made to one of the nine field datafields after it has been validated.
+     * 
+     * @param   move    a value between 1-9 to fill a field on the board.
+     * @param   player  either "X" or "O" to indicate, which player is making a move.
+     */
     public void saveMove(){
         
     }

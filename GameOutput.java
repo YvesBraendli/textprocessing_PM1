@@ -16,7 +16,7 @@
 public class GameOutput
 {
     /*
-     * Constructor for the GameOutput class
+     * Constructor for the GameOutput class.
      * 
      * @param
      */
@@ -26,7 +26,7 @@ public class GameOutput
     }
 
     /*
-     * Prints out a welcome message at the start of the game
+     * Prints out a welcome message at the start of the game.
      */    
     public void printWelcome()
     {
@@ -34,7 +34,7 @@ public class GameOutput
     }
     
     /*
-     * Prints the board after every turn
+     * Prints the board after every turn.
      */    
     public void printBoard()
     {
@@ -42,7 +42,7 @@ public class GameOutput
     }
     
     /*
-     * Prints out a request message for the language change functionality
+     * Prints out a request message for the language change functionality.
      */    
     public void printLanguageChangeRequest()
     {
@@ -50,7 +50,7 @@ public class GameOutput
     }
 
     /*
-     * Prints out a message if the language change was completed
+     * Prints out a message if the language change was completed.
      */
     public void printLanguageChange()
     {
@@ -58,7 +58,7 @@ public class GameOutput
     }
     
     /*
-     * Prints out a request for a player to make a move
+     * Prints out a request for a player to make a move.
      */    
     public void printMoveRequest()
     {
@@ -66,7 +66,7 @@ public class GameOutput
     }
 
     /*
-     * Prints out a message if a winning condition has been met
+     * Prints out a message if a winning condition has been met.
      */    
     public void printWinner()
     {
@@ -74,7 +74,7 @@ public class GameOutput
     }
 
     /*
-     * Prints out a message for a draw if the game exceeds 9 turns
+     * Prints out a message for a draw if the game exceeds 9 turns.
      */    
     public void printDraw()
     {

@@ -9,7 +9,7 @@
 public class GameSimulation
 {
     /*
-     * Constructor for the GameSimulation class
+     * Constructor for the GameSimulation class.
      * 
      * @param
      */
@@ -19,8 +19,8 @@ public class GameSimulation
     }
 
     /*
-     * playGame starts a Game of TicTacToe 
-     * and is the method that inputs the fake player data into the inputMove() method of the GameBoard class.
+     * playGame starts a Game of TicTacToe. 
+     * This is the method that inputs the fake player data into the inputMove() method of the GameBoard class.
      * 
      * @param
      */
