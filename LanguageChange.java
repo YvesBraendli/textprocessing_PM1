@@ -21,12 +21,12 @@ public class LanguageChange
     }
 
     /*
-     * Returns a boolean which is set for true if german is chosen
-     * and false if english is chosen.
+     * 
+     * sets the language boolean
      * 
      * @param
      */
-    public void switchLanguage()
+    public void setLanguage()
     {
 
     }
