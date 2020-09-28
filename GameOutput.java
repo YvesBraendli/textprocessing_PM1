@@ -66,18 +66,11 @@ public class GameOutput
     }
 
     /*
-     * Prints out a message if a winning condition has been met.
+     * Prints out a message if a winning condition has been met or the game ended in a draw.
      */    
-    public void printWinner()
+    public void printGameState()
     {
 
     }
-
-    /*
-     * Prints out a message for a draw if the game exceeds 9 turns.
-     */    
-    public void printDraw()
-    {
-
-    }    
+   
 }

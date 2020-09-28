@@ -48,7 +48,7 @@ public class GameBoard
      * @param   move    a value between 1-9 to fill a field on the board.
      * @param   player  either "X" or "O" to indicate, which player is making a move.
      */
-    public void inputMove(){
+    public void nextMove(){
         
     }
     
