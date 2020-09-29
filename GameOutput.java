@@ -15,14 +15,39 @@
 
 public class GameOutput
 {
+    private String fieldsymbol1;
+    private String fieldsymbol2;
+    private String fieldsymbol3;
+    private String fieldsymbol4;
+    private String fieldsymbol5;
+    private String fieldsymbol6;
+    private String fieldsymbol7;
+    private String fieldsymbol8;
+    private String fieldsymbol9;
+    private LanguageChange language;
+    private String player;
+    private GameLogic winner;
+    private boolean winning;
     /*
      * Constructor for the GameOutput class.
      * 
-     * @param
+     * @param empty
      */
     public GameOutput()
     {
-
+        fieldsymbol1 = "O";
+        fieldsymbol2 = "O";
+        fieldsymbol3 = "O";
+        fieldsymbol4 = "O";
+        fieldsymbol5 = "O";
+        fieldsymbol6 = "O";
+        fieldsymbol7 = "O";
+        fieldsymbol8 = "O";
+        fieldsymbol9 = "O";
+        language = new LanguageChange();
+        player = "";
+        winner = new GameLogic();
+        winning = false;
     }
 
     /*
@@ -30,23 +55,112 @@ public class GameOutput
      */    
     public void printWelcome()
     {
-
+        if(language.getIsGerman() == true)
+        {
+            System.out.println("Herzlich Willkommen zu ihrem neuen Spiel. Spieler eins, bitte tätigen sie ihren ersten Spielzug.");
+        }
+        if(language.getIsGerman() == false)
+        {
+            System.out.println("Welcome to your new Game. Player one, please select your first turn.");
+        }
     }
-    
+
     /*
      * Prints the board after every turn.
      */    
-    public void printBoard()
+    public void printBoard(int field1, int field2, int field3, int field4, int field5, int field6, int field7, int field8, int field9)
     {
+        if (field1 == 1)
+        {
+            fieldsymbol1 = "X";   
+        } else if (field1 == 0)
+        {
+            fieldsymbol1 = "O"; 
+        }
+        if (field2 == 1)
+        {
+            fieldsymbol2 = "X";   
+        } else if (field2 == 0)
+        {
+            fieldsymbol2 = "O"; 
+        }
+        if (field3 == 1)
+        {
+            fieldsymbol3 = "X";   
+        } else if (field3 == 0)
+        {
+            fieldsymbol3 = "O"; 
+        }
+        if (field4 == 1)
+        {
+            fieldsymbol4 = "X";   
+        } else if (field4 == 0)
+        {
+            fieldsymbol4 = "O"; 
+        }
+        if (field5 == 1)
+        {
+            fieldsymbol5 = "X";   
+        } else if (field5 == 0)
+        {
+            fieldsymbol5 = "O"; 
+        }
+        if (field5 == 1)
+        {
+            fieldsymbol5 = "X";   
+        } else if (field5 == 0)
+        {
+            fieldsymbol5 = "O"; 
+        }
+        if (field6 == 1)
+        {
+            fieldsymbol6 = "X";   
+        } else if (field6 == 0)
+        {
+            fieldsymbol6 = "O"; 
+        }
+        if (field7 == 1)
+        {
+            fieldsymbol7 = "X";   
+        } else if (field7 == 0)
+        {
+            fieldsymbol7 = "O"; 
+        }
+        if (field8 == 1)
+        {
+            fieldsymbol8 = "X";   
+        } else if (field8 == 0)
+        {
+            fieldsymbol8 = "O"; 
+        }
+        if (field9 == 1)
+        {
+            fieldsymbol9 = "X";   
+        } else if (field9 == 0)
+        {
+            fieldsymbol9 = "O"; 
+        }
+        System.out.println(fieldsymbol1 + " * " + fieldsymbol2 + " * " + fieldsymbol3);
+        System.out.println("* * * * *");
+        System.out.println(fieldsymbol4 + " * " + fieldsymbol5 + " * " + fieldsymbol6);
+        System.out.println("* * * * *");
+        System.out.println(fieldsymbol7 + " * " + fieldsymbol8 + " * " + fieldsymbol9);
 
     }
-    
+
     /*
      * Prints out a request message for the language change functionality.
      */    
     public void printLanguageChangeRequest()
     {
-
+        if(language.getIsGerman() == true)
+        {
+            System.out.println("Möchten sie die Sprache auf Englisch wechseln?");
+        }
+        if(language.getIsGerman() == false)
+        {
+            System.out.println("Would you like to switch the language to german?");
+        }
     }
 
     /*
@@ -54,23 +168,76 @@ public class GameOutput
      */
     public void printLanguageChange()
     {
-
+        if(language.getIsGerman() == true)
+        {
+            System.out.println("Sprachwechsel auf Deutsch erfolgreich.");
+        }
+        if(language.getIsGerman() == false)
+        {
+            System.out.println("Language change to english successful.");
+        }
     }
-    
+
     /*
      * Prints out a request for a player to make a move.
      */    
-    public void printMoveRequest()
+    public void printMoveRequest(boolean isplayerone)
     {
-
+        if(language.getIsGerman() == true)
+        {
+            if (isplayerone == true)
+            { player = "Spieler Eins";
+            }
+            if (isplayerone == false)
+            { player = "Spieler Zwei";
+            }
+            System.out.println(player + ", bitte geben sie ihren nächsten Spielzug ein.");
+        }
+        if(language.getIsGerman() == false)
+        {
+            if (isplayerone == true)
+            { player = "Player one";
+            }
+            if (isplayerone == false)
+            { player = "Player two";
+            }
+            System.out.println(player + ", please choose your next turn.");
+        }
     }
 
     /*
      * Prints out a message if a winning condition has been met or the game ended in a draw.
      */    
-    public void printGameState()
+    public void printGameState(int winningplayer)
     {
-
+        if(language.getIsGerman() == true)
+        {
+            if (winningplayer == 1)//winner.checkGameState() == 1) // 1 Stands for a draw condition.
+            { System.out.println("Sie haben ein Unentschieden erreicht. Herzliche Gratulation an beide Spieler.");
+            }
+            if (winningplayer == 2)//winner.checkGameState() == 2) // 2 Stands for a winning condition for Player one.
+            { player = "Spieler Eins";
+              System.out.println(player + ", hat das Spiel gewonnen");
+            }
+            if (winningplayer == 3)//winner.checkGameState() == 3) // 3 Stands for a winning condition for Player two.
+            { player = "Spieler Zwei";
+              System.out.println(player + ", hat das Spiel gewonnen");
+            }
+        }
+        if(language.getIsGerman() == false)
+        {
+            if (winningplayer == 1)//winner.checkGameState() == 1) // 1 Stands for a draw condition.
+            { System.out.println("You've reached a draw situation. Congratulations to both players.");
+            }
+            if (winningplayer == 2)//winner.checkGameState() == 2) // 2 Stands for a winning condition for Player one.
+            { player = "Player one";
+              System.out.println(player + ", has won the game.");
+            }
+            if (winningplayer == 3)//winner.checkGameState() == 3) // 3 Stands for a winning condition for Player two.
+            { player = "Spieler two";
+              System.out.println(player + ", has won the game");
+            }
+        }
     }
-   
+
 }
