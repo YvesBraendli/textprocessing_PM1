@@ -35,15 +35,15 @@ public class GameOutput
      */
     public GameOutput()
     {
-        fieldsymbol1 = "O";
-        fieldsymbol2 = "O";
-        fieldsymbol3 = "O";
-        fieldsymbol4 = "O";
-        fieldsymbol5 = "O";
-        fieldsymbol6 = "O";
-        fieldsymbol7 = "O";
-        fieldsymbol8 = "O";
-        fieldsymbol9 = "O";
+        fieldsymbol1 = "-";
+        fieldsymbol2 = "-";
+        fieldsymbol3 = "-";
+        fieldsymbol4 = "-";
+        fieldsymbol5 = "-";
+        fieldsymbol6 = "-";
+        fieldsymbol7 = "-";
+        fieldsymbol8 = "-";
+        fieldsymbol9 = "-";
         language = new LanguageChange();
         player = "";
         winner = new GameLogic();
@@ -73,70 +73,70 @@ public class GameOutput
         if (field1 == 1)
         {
             fieldsymbol1 = "X";   
-        } else if (field1 == 0)
+        } else if (field1 == 2)
         {
             fieldsymbol1 = "O"; 
         }
         if (field2 == 1)
         {
             fieldsymbol2 = "X";   
-        } else if (field2 == 0)
+        } else if (field2 == 2)
         {
             fieldsymbol2 = "O"; 
         }
         if (field3 == 1)
         {
             fieldsymbol3 = "X";   
-        } else if (field3 == 0)
+        } else if (field3 == 2)
         {
             fieldsymbol3 = "O"; 
         }
         if (field4 == 1)
         {
             fieldsymbol4 = "X";   
-        } else if (field4 == 0)
+        } else if (field4 == 2)
         {
             fieldsymbol4 = "O"; 
         }
         if (field5 == 1)
         {
             fieldsymbol5 = "X";   
-        } else if (field5 == 0)
+        } else if (field5 == 2)
         {
             fieldsymbol5 = "O"; 
         }
         if (field5 == 1)
         {
             fieldsymbol5 = "X";   
-        } else if (field5 == 0)
+        } else if (field5 == 2)
         {
             fieldsymbol5 = "O"; 
         }
         if (field6 == 1)
         {
             fieldsymbol6 = "X";   
-        } else if (field6 == 0)
+        } else if (field6 == 2)
         {
             fieldsymbol6 = "O"; 
         }
         if (field7 == 1)
         {
             fieldsymbol7 = "X";   
-        } else if (field7 == 0)
+        } else if (field7 == 2)
         {
             fieldsymbol7 = "O"; 
         }
         if (field8 == 1)
         {
             fieldsymbol8 = "X";   
-        } else if (field8 == 0)
+        } else if (field8 == 2)
         {
             fieldsymbol8 = "O"; 
         }
         if (field9 == 1)
         {
             fieldsymbol9 = "X";   
-        } else if (field9 == 0)
+        } else if (field9 == 2)
         {
             fieldsymbol9 = "O"; 
         }
@@ -145,7 +145,7 @@ public class GameOutput
         System.out.println(fieldsymbol4 + " * " + fieldsymbol5 + " * " + fieldsymbol6);
         System.out.println("* * * * *");
         System.out.println(fieldsymbol7 + " * " + fieldsymbol8 + " * " + fieldsymbol9);
-
+        System.out.println();
     }
 
     /*
@@ -212,32 +212,43 @@ public class GameOutput
     {
         if(language.getIsGerman() == true)
         {
-            if (winningplayer == 1)//winner.checkGameState() == 1) // 1 Stands for a draw condition.
+            if (winner.checkGameState() == 1) // 1 Stands for a draw condition.
             { System.out.println("Sie haben ein Unentschieden erreicht. Herzliche Gratulation an beide Spieler.");
             }
-            if (winningplayer == 2)//winner.checkGameState() == 2) // 2 Stands for a winning condition for Player one.
+            if (winner.checkGameState() == 2) // 2 Stands for a winning condition for Player one.
             { player = "Spieler Eins";
               System.out.println(player + ", hat das Spiel gewonnen");
             }
-            if (winningplayer == 3)//winner.checkGameState() == 3) // 3 Stands for a winning condition for Player two.
+            if (winner.checkGameState() == 3) // 3 Stands for a winning condition for Player two.
             { player = "Spieler Zwei";
               System.out.println(player + ", hat das Spiel gewonnen");
             }
         }
         if(language.getIsGerman() == false)
         {
-            if (winningplayer == 1)//winner.checkGameState() == 1) // 1 Stands for a draw condition.
+            if (winner.checkGameState() == 1) // 1 Stands for a draw condition.
             { System.out.println("You've reached a draw situation. Congratulations to both players.");
             }
-            if (winningplayer == 2)//winner.checkGameState() == 2) // 2 Stands for a winning condition for Player one.
+            if (winner.checkGameState() == 2) // 2 Stands for a winning condition for Player one.
             { player = "Player one";
               System.out.println(player + ", has won the game.");
             }
-            if (winningplayer == 3)//winner.checkGameState() == 3) // 3 Stands for a winning condition for Player two.
+            if (winner.checkGameState() == 3) // 3 Stands for a winning condition for Player two.
             { player = "Spieler two";
               System.out.println(player + ", has won the game");
             }
         }
     }
 
+    public void printWrongMove()
+    {
+       if(language.getIsGerman() == true)
+        {
+            System.out.println("Zug ungültig. Wählen sie bitte einen freien Sektor auf dem Spielfeld.");
+        }
+        if(language.getIsGerman() == false)
+        {
+            System.out.println("Move invalid. Please select a free field on the gameboard.");
+        } 
+    }
 }
