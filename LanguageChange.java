@@ -13,7 +13,7 @@ public class LanguageChange
     /*
      * Constructor for the LanguageChange class.
      * 
-     * @param   isGerman    false for english, true for german
+     * @param isGerman false for english, true for german
      */
     public LanguageChange()
     {
@@ -26,9 +26,9 @@ public class LanguageChange
      * 
      * @param
      */
-    public void setIsGerman()
+    public void setIsGerman(boolean isGerman)
     {
-
+        this.isGerman = isGerman;
     }
     
     /*
