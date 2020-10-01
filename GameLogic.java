@@ -9,10 +9,7 @@
  */
 public class GameLogic
 {
-    private int winningstatus;
     private GameBoard currentsituation;
-    private boolean validmove;
-    private GameOutput out;
     /*
      * Constructor for the GameLogic class.
      * 
@@ -20,12 +17,9 @@ public class GameLogic
      */   
     public GameLogic()
     {
-        winningstatus = 0;
         currentsituation = new GameBoard();
-        validmove = true;
-        out = new GameOutput();
     }
-    
+
     /*
      * Checks if move inputed is valid, following these rules:
      *  An input must be a value between 1-9.
@@ -35,18 +29,21 @@ public class GameLogic
      */
     public boolean validateMove(int field, int player)
     {
-        if(currentsituation.returnField1() || currentsituation.returnField2() || currentsituation.returnField3() || currentsituation.returnField4() || currentsituation.returnField5() || currentsituation.returnField6() || currentsituation.returnField7() ||
-        currentsituation.returnField8() || currentsituation.returnField9() == field)
+        GameOutput out = new GameOutput();
+        boolean validmove = true;
+        if(((field == 1) && (currentsituation.returnField1() !=0))||((field == 2) && (currentsituation.returnField2() !=0))||((field == 3) && (currentsituation.returnField3() !=0))||((field == 4) && (currentsituation.returnField4() !=0))||
+        ((field == 5) && (currentsituation.returnField5() !=0))||((field == 6) && (currentsituation.returnField6() !=0))||((field == 7) && (currentsituation.returnField7() !=0))||((field == 8) && (currentsituation.returnField8() !=0))||
+        ((field == 9) && (currentsituation.returnField9() !=0)))
         {
-           out.printWrongMove(); 
+            out.printWrongMove(); 
         }
         else 
         {
-         validmove = true;   
+            validmove = true;   
         }
         return validmove;
     }
-    
+
     /*
      * Checks for either a winning gamestate or a draw.
      * Returns an int for each Player winning or a draw.
@@ -59,6 +56,7 @@ public class GameLogic
      */
     public int checkGameState()
     {
+        int winningstatus = 0;
         if ((currentsituation.returnField1() && currentsituation.returnField2() && currentsituation.returnField3()) == 1) // horizontal, top row, player one
         {
             winningstatus = 2;
@@ -83,7 +81,6 @@ public class GameLogic
         {
             winningstatus = 3;
         }
-        
         if ((currentsituation.returnField1() && currentsituation.returnField4() && currentsituation.returnField7()) == 1) // vertical, first row, player one
         {
             winningstatus = 2;

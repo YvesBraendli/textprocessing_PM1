@@ -26,8 +26,6 @@ public class GameOutput
     private String fieldsymbol9;
     private LanguageChange language;
     private String player;
-    private GameLogic winner;
-    private boolean winning;
     /*
      * Constructor for the GameOutput class.
      * 
@@ -45,9 +43,7 @@ public class GameOutput
         fieldsymbol8 = "-";
         fieldsymbol9 = "-";
         language = new LanguageChange();
-        player = "";
-        winner = new GameLogic();
-        winning = false;
+        player = "Spieler eins";
     }
 
     /*
@@ -57,11 +53,12 @@ public class GameOutput
     {
         if(language.getIsGerman() == true)
         {
-            System.out.println("Herzlich Willkommen zu ihrem neuen Spiel. Spieler eins, bitte tätigen sie ihren ersten Spielzug.");
+            System.out.println("Herzlich Willkommen zu ihrem neuen Spiel. " + player + ", bitte tätigen sie ihren ersten Spielzug.");
         }
         if(language.getIsGerman() == false)
         {
-            System.out.println("Welcome to your new Game. Player one, please select your first turn.");
+            player = "Player one";
+            System.out.println("Welcome to your new Game. " + player + ", please select your first turn.");
         }
     }
 
@@ -210,6 +207,7 @@ public class GameOutput
      */    
     public void printGameState(int winningplayer)
     {
+        GameLogic winner = new GameLogic();
         if(language.getIsGerman() == true)
         {
             if (winner.checkGameState() == 1) // 1 Stands for a draw condition.
