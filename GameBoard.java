@@ -22,6 +22,7 @@ public class GameBoard
     private int field9;
     private int turnCount;
     private GameOutput gameOutput;
+    private GameLogic gameLogic;
     
     /*
      * Constructor for the GameBoard class.
@@ -31,6 +32,7 @@ public class GameBoard
     public GameBoard()
     {
         gameOutput = new GameOutput();
+        gameLogic = new GameLogic();
     }
     
     /*
@@ -51,8 +53,27 @@ public class GameBoard
      * @param   move    a value between 1-9 to fill a field on the board.
      * @param   player  either "X" or "O" to indicate, which player is making a move.
      */
-    public void nextMove(){
+    public void nextMove(int move){
+        if(move < 1 || move > 9)
+        {
+            //todo: invalid input, try again
+        }
         
+        boolean isValidMove = gameLogic.validateMove(move, 0); // 0 placeholder, not 
+        if(isValidMove){
+            saveMove();
+            int currentGameState = gameLogic.checkGameState();
+            gameOutput.printGameState(currentGameState);
+            
+            if(currentGameState > 0)
+            {
+                // todo: gameOutput.printEnding();
+            }
+            gameOutput.printLanguageChangeRequest();
+        }
+        else {
+            gameOutput.printWrongMove();
+        }
     }
     
     /*
