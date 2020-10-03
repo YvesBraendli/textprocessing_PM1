@@ -21,6 +21,7 @@ public class GameBoard
     private int field8;
     private int field9;
     private int turnCount;
+    private GameOutput gameOutput;
     
     /*
      * Constructor for the GameBoard class.
@@ -29,7 +30,7 @@ public class GameBoard
      */
     public GameBoard()
     {
-    
+        gameOutput = new GameOutput();
     }
     
     /*
@@ -39,7 +40,9 @@ public class GameBoard
      */
     public void startGame()
     { 
-        
+        gameOutput.printWelcome();
+        boolean isPlayerOnesTurn = (turnCount % 2) == 1;
+        gameOutput.printMoveRequest(isPlayerOnesTurn);
     }
     
     /*
