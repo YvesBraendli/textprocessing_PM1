@@ -59,6 +59,7 @@ public class GameBoard
             if(currentGameState > 0)
             {
                 // todo: gameOutput.printEnding();
+                return;
             }
             turnCount++;
             gameOutput.printLanguageChangeRequest();
