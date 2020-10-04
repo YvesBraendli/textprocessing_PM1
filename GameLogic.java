@@ -25,9 +25,9 @@ public class GameLogic
      *  
      *  @param 
      */
-    public boolean validateMove(int field, int[] fields, int player)
+    public boolean validateMove(int field, int[] fields, int player, LanguageChange languageChange)
     {
-        GameOutput out = new GameOutput();
+        GameOutput out = new GameOutput(languageChange);
         boolean validmove = true;
         if(((field == 1) && (fields[0] !=0))
             || ((field == 2) && (fields[1] !=0))

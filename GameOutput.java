@@ -31,7 +31,7 @@ public class GameOutput
      * 
      * @param empty
      */
-    public GameOutput()
+    public GameOutput(LanguageChange languageChange)
     {
         fieldsymbol1 = "-";
         fieldsymbol2 = "-";
@@ -42,7 +42,7 @@ public class GameOutput
         fieldsymbol7 = "-";
         fieldsymbol8 = "-";
         fieldsymbol9 = "-";
-        language = new LanguageChange();
+        language = languageChange;
         player = "Spieler eins";
     }
 

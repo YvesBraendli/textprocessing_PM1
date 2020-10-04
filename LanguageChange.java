@@ -26,9 +26,8 @@ public class LanguageChange
      * 
      * @param
      */
-    public void setIsGerman(boolean isGerman)
-    {
-        this.isGerman = isGerman;
+    public void changeLanguage(){
+        isGerman = !isGerman;
     }
     
     /*

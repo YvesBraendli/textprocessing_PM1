@@ -15,6 +15,7 @@ public class GameBoard
     private int turnCount;
     private GameOutput gameOutput;
     private GameLogic gameLogic;
+    private LanguageChange languageChange;
     
     /*
     * Constructor for the GameBoard class.
@@ -24,7 +25,8 @@ public class GameBoard
     public GameBoard()
     { 
         fields = new int[9];
-        gameOutput = new GameOutput();
+        languageChange = new LanguageChange();
+        gameOutput = new GameOutput(languageChange);
         gameLogic = new GameLogic();
     }
     
@@ -36,6 +38,7 @@ public class GameBoard
     public void startGame()
     { 
         gameOutput.printWelcome();
+        gameOutput.printBoard(fields);
     }
     
     /*
@@ -48,9 +51,12 @@ public class GameBoard
         if(field < 1 || field > 9)
         {
             //todo: invalid input, try again
+            gameOutput.printWrongMove();
+            gameOutput.printBoard(fields);
+            return;
         }
         
-        boolean isValidMove = gameLogic.validateMove(field, fields, 0); // 0 placeholder, not 
+        boolean isValidMove = gameLogic.validateMove(field, fields, 0, languageChange); // 0 placeholder, not 
         if(isValidMove){
             saveMove(field);
             gameOutput.printBoard(fields);
@@ -83,5 +89,10 @@ public class GameBoard
         int player = (turnCount % 2) + 1;
         int index = field-1;
         fields[index] = player;
+    }
+    
+    public void changeLanguage(){
+        languageChange.changeLanguage();
+        gameOutput.printLanguageChange();
     }
 }
