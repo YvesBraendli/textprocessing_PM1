@@ -9,7 +9,6 @@
  */
 public class GameLogic
 {
-    private GameBoard currentsituation;
     /*
      * Constructor for the GameLogic class.
      * 
@@ -17,7 +16,6 @@ public class GameLogic
      */   
     public GameLogic()
     {
-        currentsituation = new GameBoard();
     }
 
     /*
@@ -27,13 +25,19 @@ public class GameLogic
      *  
      *  @param 
      */
-    public boolean validateMove(int field, int player)
+    public boolean validateMove(int field, int[] fields, int player)
     {
         GameOutput out = new GameOutput();
         boolean validmove = true;
-        if(((field == 1) && (currentsituation.returnField1() !=0))||((field == 2) && (currentsituation.returnField2() !=0))||((field == 3) && (currentsituation.returnField3() !=0))||((field == 4) && (currentsituation.returnField4() !=0))||
-        ((field == 5) && (currentsituation.returnField5() !=0))||((field == 6) && (currentsituation.returnField6() !=0))||((field == 7) && (currentsituation.returnField7() !=0))||((field == 8) && (currentsituation.returnField8() !=0))||
-        ((field == 9) && (currentsituation.returnField9() !=0)))
+        if(((field == 1) && (fields[0] !=0))
+            || ((field == 2) && (fields[1] !=0))
+            || ((field == 3) && (fields[2] !=0))
+            || ((field == 4) && (fields[3] !=0))
+            || ((field == 5) && (fields[4] !=0))
+            || ((field == 6) && (fields[5] !=0))
+            || ((field == 7) && (fields[6] !=0))
+            || ((field == 8) && (fields[7] !=0))
+            || ((field == 9) && (fields[8] !=0)))
         {
             out.printWrongMove(); 
         }
@@ -54,70 +58,70 @@ public class GameLogic
      * 
      * @param
      */
-    public int checkGameState()
+    public int checkGameState(int[] fields)
     {
         int winningstatus = 0;
-        if ((currentsituation.returnField1() && currentsituation.returnField2() && currentsituation.returnField3()) == 1) // horizontal, top row, player one
+        if (fields[0] == 1 && fields[1] == 1 && fields[2] == 1) // horizontal, top row, player one
         {
             winningstatus = 2;
         }
-        if ((currentsituation.returnField1() && currentsituation.returnField2() && currentsituation.returnField3()) == 2) // horizontal, top row, player two
+        if (fields[0] == 2 && fields[1] == 2 && fields[2] == 2) // horizontal, top row, player two
         {
             winningstatus = 3;
         }
-        if ((currentsituation.returnField4() && currentsituation.returnField5() && currentsituation.returnField6()) == 1) // horizontal, middle row, player one
+        if (fields[3] == 1 && fields[4] == 1 && fields[5] == 1) // horizontal, middle row, player one
         {
             winningstatus = 2;
         }
-        if ((currentsituation.returnField4() && currentsituation.returnField5() && currentsituation.returnField6()) == 2) // horizontal, middle row, player two
+        if (fields[3] == 2 && fields[4] == 2 && fields[5] == 2) // horizontal, middle row, player two
         {
             winningstatus = 3;
         }
-        if ((currentsituation.returnField7() && currentsituation.returnField8() && currentsituation.returnField9()) == 1) // horizontal, bottom row, player one
+        if (fields[6] == 1 && fields[7] == 1 && fields[8] == 1) // horizontal, bottom row, player one
         {
             winningstatus = 2;
         }
-        if ((currentsituation.returnField7() && currentsituation.returnField8() && currentsituation.returnField9()) == 2) // horizontal, bottom row, player two
+        if (fields[6] == 2 && fields[7] == 2 && fields[8] == 2) // horizontal, bottom row, player two
         {
             winningstatus = 3;
         }
-        if ((currentsituation.returnField1() && currentsituation.returnField4() && currentsituation.returnField7()) == 1) // vertical, first row, player one
+        if (fields[0] == 1 && fields[3] == 1 && fields[6] == 1) // vertical, first row, player one
         {
             winningstatus = 2;
         }
-        if ((currentsituation.returnField1() && currentsituation.returnField4() && currentsituation.returnField7()) == 2) // vertical, first row, player two
+        if (fields[0] == 2 && fields[3] == 2 && fields[6] == 2) // vertical, first row, player two
         {
             winningstatus = 3;
         }
-        if ((currentsituation.returnField2() && currentsituation.returnField5() && currentsituation.returnField8()) == 1) // vertical, second row, player one
+        if (fields[1] == 1 && fields[4] == 1 && fields[7] == 1) // vertical, second row, player one
         {
             winningstatus = 2;
         }
-        if ((currentsituation.returnField2() && currentsituation.returnField5() && currentsituation.returnField8()) == 2) // vertical, second row, player two
+        if (fields[1] == 2 && fields[4] == 2 && fields[7] == 2) // vertical, second row, player two
         {
             winningstatus = 3;
         }
-        if ((currentsituation.returnField3() && currentsituation.returnField6() && currentsituation.returnField9()) == 1) // vertical, third row, player one
+        if (fields[2] == 1 && fields[5] == 1 && fields[8] == 1) // vertical, third row, player one
         {
             winningstatus = 2;
         }
-        if ((currentsituation.returnField3() && currentsituation.returnField6() && currentsituation.returnField9()) == 2) // vertical, third row, player two
+        if (fields[2] == 2 && fields[5] == 2 && fields[8] == 2) // vertical, third row, player two
         {
             winningstatus = 3;
         }
-        if ((currentsituation.returnField1() && currentsituation.returnField5() && currentsituation.returnField9()) == 1) // diagonally, top left to bottom right, player one
+        if (fields[0] == 1 && fields[4] == 1 && fields[8] == 1) // diagonally, top left to bottom right, player one
         {
             winningstatus = 2;
         }
-        if ((currentsituation.returnField1() && currentsituation.returnField5() && currentsituation.returnField9()) == 1) // diagonally, top left to bottom right, player two
+        if (fields[0] == 2 && fields[4] == 2 && fields[8] == 2)  // diagonally, top left to bottom right, player two
         {
             winningstatus = 3;
         }
-        if ((currentsituation.returnField3() && currentsituation.returnField5() && currentsituation.returnField7()) == 1) // diagonally, top right to bottom left, player one
+        if (fields[2] == 1 && fields[4] == 1 && fields[6] == 1) // diagonally, top right to bottom left, player one
         {
             winningstatus = 2;
         }
-        if ((currentsituation.returnField3() && currentsituation.returnField5() && currentsituation.returnField7()) == 2) // diagonally, top right to bottom left, player two
+        if (fields[2] == 2 && fields[4] == 2 && fields[6] == 2) // diagonally, top right to bottom left, player two
         {
             winningstatus = 3;
         }

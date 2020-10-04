@@ -65,75 +65,68 @@ public class GameOutput
     /*
      * Prints the board after every turn.
      */    
-    public void printBoard(int field1, int field2, int field3, int field4, int field5, int field6, int field7, int field8, int field9)
+    public void printBoard(int[] fields)
     {
-        if (field1 == 1)
+        if (fields[0] == 1)
         {
             fieldsymbol1 = "X";   
-        } else if (field1 == 2)
+        } else if (fields[0] == 2)
         {
             fieldsymbol1 = "O"; 
         }
-        if (field2 == 1)
+        if (fields[1] == 1)
         {
             fieldsymbol2 = "X";   
-        } else if (field2 == 2)
+        } else if (fields[1] == 2)
         {
             fieldsymbol2 = "O"; 
         }
-        if (field3 == 1)
+        if (fields[2] == 1)
         {
             fieldsymbol3 = "X";   
-        } else if (field3 == 2)
+        } else if (fields[2] == 2)
         {
             fieldsymbol3 = "O"; 
         }
-        if (field4 == 1)
+        if (fields[3] == 1)
         {
             fieldsymbol4 = "X";   
-        } else if (field4 == 2)
+        } else if (fields[3] == 2)
         {
             fieldsymbol4 = "O"; 
         }
-        if (field5 == 1)
+        if (fields[4] == 1)
         {
             fieldsymbol5 = "X";   
-        } else if (field5 == 2)
+        } else if (fields[4] == 2)
         {
             fieldsymbol5 = "O"; 
         }
-        if (field5 == 1)
-        {
-            fieldsymbol5 = "X";   
-        } else if (field5 == 2)
-        {
-            fieldsymbol5 = "O"; 
-        }
-        if (field6 == 1)
+        if (fields[5] == 1)
         {
             fieldsymbol6 = "X";   
-        } else if (field6 == 2)
+        } else if (fields[5] == 2)
         {
             fieldsymbol6 = "O"; 
         }
-        if (field7 == 1)
+        if (fields[6] == 1)
         {
             fieldsymbol7 = "X";   
-        } else if (field7 == 2)
+        } else if (fields[6] == 2)
         {
             fieldsymbol7 = "O"; 
         }
-        if (field8 == 1)
+        if (fields[7] == 1)
         {
             fieldsymbol8 = "X";   
-        } else if (field8 == 2)
+        } else if (fields[7] == 2)
         {
             fieldsymbol8 = "O"; 
         }
-        if (field9 == 1)
+        if (fields[8] == 1)
         {
             fieldsymbol9 = "X";   
-        } else if (field9 == 2)
+        } else if (fields[8] == 2)
         {
             fieldsymbol9 = "O"; 
         }
@@ -205,33 +198,32 @@ public class GameOutput
     /*
      * Prints out a message if a winning condition has been met or the game ended in a draw.
      */    
-    public void printGameState(int winningplayer)
+    public void printGameState(int currentGameState)
     {
-        GameLogic winner = new GameLogic();
         if(language.getIsGerman() == true)
         {
-            if (winner.checkGameState() == 1) // 1 Stands for a draw condition.
+            if (currentGameState == 1) // 1 Stands for a draw condition.
             { System.out.println("Sie haben ein Unentschieden erreicht. Herzliche Gratulation an beide Spieler.");
             }
-            if (winner.checkGameState() == 2) // 2 Stands for a winning condition for Player one.
+            if (currentGameState == 2) // 2 Stands for a winning condition for Player one.
             { player = "Spieler Eins";
               System.out.println(player + ", hat das Spiel gewonnen");
             }
-            if (winner.checkGameState() == 3) // 3 Stands for a winning condition for Player two.
+            if (currentGameState == 3) // 3 Stands for a winning condition for Player two.
             { player = "Spieler Zwei";
               System.out.println(player + ", hat das Spiel gewonnen");
             }
         }
         if(language.getIsGerman() == false)
         {
-            if (winner.checkGameState() == 1) // 1 Stands for a draw condition.
+            if (currentGameState == 1) // 1 Stands for a draw condition.
             { System.out.println("You've reached a draw situation. Congratulations to both players.");
             }
-            if (winner.checkGameState() == 2) // 2 Stands for a winning condition for Player one.
+            if (currentGameState == 2) // 2 Stands for a winning condition for Player one.
             { player = "Player one";
               System.out.println(player + ", has won the game.");
             }
-            if (winner.checkGameState() == 3) // 3 Stands for a winning condition for Player two.
+            if (currentGameState == 3) // 3 Stands for a winning condition for Player two.
             { player = "Spieler two";
               System.out.println(player + ", has won the game");
             }
