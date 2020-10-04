@@ -85,7 +85,7 @@ public class GameBoard
     * @param   move    a value between 1-9 to fill a field on the board.
     * @param   player  either "X" or "O" to indicate, which player is making a move.
     */
-    public void saveMove(int field){
+    private void saveMove(int field){
         int player = (turnCount % 2) + 1;
         int index = field-1;
         fields[index] = player;
