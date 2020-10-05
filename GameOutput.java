@@ -171,24 +171,24 @@ public class GameOutput
     /*
      * Prints out a request for a player to make a move.
      */    
-    public void printMoveRequest(boolean isplayerone)
+    public void printMoveRequest(boolean isPlayerOne)
     {
         if(language.getIsGerman() == true)
         {
-            if (isplayerone == true)
+            if (isPlayerOne == true)
             { player = "Spieler Eins";
             }
-            if (isplayerone == false)
+            if (isPlayerOne == false)
             { player = "Spieler Zwei";
             }
             System.out.println(player + ", bitte geben sie ihren nächsten Spielzug ein.");
         }
         if(language.getIsGerman() == false)
         {
-            if (isplayerone == true)
+            if (isPlayerOne == true)
             { player = "Player one";
             }
-            if (isplayerone == false)
+            if (isPlayerOne == false)
             { player = "Player two";
             }
             System.out.println(player + ", please choose your next turn.");
