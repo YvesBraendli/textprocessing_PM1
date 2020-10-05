@@ -48,13 +48,6 @@ public class GameBoard
     * @param   player  either "X" or "O" to indicate, which player is making a move.
     */
     public void nextMove(int field){
-        if(field < 1 || field > 9)
-        {
-            //todo: invalid input, try again
-            gameOutput.printWrongMove();
-            gameOutput.printBoard(fields);
-            return;
-        }
         
         boolean isValidMove = gameLogic.validateMove(field, fields, 0, languageChange); // 0 placeholder, not 
         if(isValidMove){

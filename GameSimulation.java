@@ -26,16 +26,16 @@ public class GameSimulation
     public void playGame()
     {
         /* Gametype 1: Player One Wins */
-        // gameBoard.startGame();
-        // gameBoard.nextMove(1);
-        // gameBoard.nextMove(3);
-        // gameBoard.changeLanguage();
-        // gameBoard.nextMove(5);
-        // gameBoard.nextMove(9);
-        // gameBoard.nextMove(7);
-        // gameBoard.changeLanguage();
-        // gameBoard.nextMove(4);
-        // gameBoard.nextMove(3);
+        gameBoard.startGame();
+        gameBoard.nextMove(1);
+        gameBoard.nextMove(2);
+        gameBoard.changeLanguage();
+        gameBoard.nextMove(5);
+        gameBoard.nextMove(9);
+        gameBoard.nextMove(7);
+        gameBoard.changeLanguage();
+        gameBoard.nextMove(4);
+        gameBoard.nextMove(3);
         
         /* Gametype 2: Player Two Wins */
         // gameBoard.startGame();

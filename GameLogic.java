@@ -29,7 +29,8 @@ public class GameLogic
     {
         GameOutput out = new GameOutput(languageChange);
         boolean validmove = true;
-        if(((field == 1) && (fields[0] !=0))
+        if((field < 1 || field > 9)
+            || ((field == 1) && (fields[0] !=0))
             || ((field == 2) && (fields[1] !=0))
             || ((field == 3) && (fields[2] !=0))
             || ((field == 4) && (fields[3] !=0))
