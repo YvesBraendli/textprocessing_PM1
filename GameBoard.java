@@ -49,7 +49,7 @@ public class GameBoard
     */
     public void nextMove(int field){
         
-        boolean isValidMove = gameLogic.validateMove(field, fields, 0, languageChange); // 0 placeholder, not 
+        boolean isValidMove = gameLogic.validateMove(field, fields, languageChange);
         if(isValidMove){
             saveMove(field);
             gameOutput.printBoard(fields);
