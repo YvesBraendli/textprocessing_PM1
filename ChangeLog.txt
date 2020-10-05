@@ -1,0 +1,26 @@
+Request[Done] - nextMove() should not have the check if a field is beetween 1-9, should be in validateMove
+	moved input size validation to validateMove
+
+Request - change Arrays to ArrayLists. Arrays are in Week 5
+Request - printBoard make seperate method to return X or O (removes redundant code)
+Request - nextMove() retry message
+Request - make player a datafield
+Request - Add capability to reset game
+Request[Done] - isplayerone in printMoveRequest -> isPlayerOne
+Request[Done] - Initialize turnCount datafield
+
+Bug - validateMove(), int player is not used
+
+Bug - Player Turn request wrong way around.
+
+Bug[Fixed] - "Spieler" two has won the game
+	Changed "Spieler" to "Player"
+	
+Bug - Draw State not in checkGameState()
+
+
+Bug[Fixed] - Invalid move message is sent, but field gets overwritten anyways
+	Changed validateMove method to be true by default and set to false if condition is met
+
+
+
