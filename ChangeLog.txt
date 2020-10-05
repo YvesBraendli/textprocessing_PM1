@@ -12,11 +12,12 @@ Request[Done] - nextMove() should not have the check if a field is beetween 1-9,
 	moved input size validation to validateMove
 	
 	
-Bug - validateMove(), int player is not used
+
 Bug - Player Turn request wrong way around.
 Bug - Draw State not in checkGameState()
 
-
+Bug[Fixed] - validateMove(), int player is not used
+	Removed parameter
 Bug[Fixed] - Invalid move message is sent, but field gets overwritten anyways
 	Changed validateMove method to be true by default and set to false if condition is met
 Bug[Fixed] - "Spieler" two has won the game
