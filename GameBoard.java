@@ -25,6 +25,7 @@ public class GameBoard
     public GameBoard()
     { 
         fields = new int[9];
+        turnCount = 0;
         languageChange = new LanguageChange();
         gameOutput = new GameOutput(languageChange);
         gameLogic = new GameLogic();
