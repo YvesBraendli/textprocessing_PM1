@@ -7,6 +7,7 @@
  * @author Yves Brändli, Nadine Moser, Robin Meier
  * @version 1.0
  */
+import java.util.ArrayList;
 public class GameLogic
 {
     /*
@@ -25,20 +26,20 @@ public class GameLogic
      *  
      *  @param 
      */
-    public boolean validateMove(int field, int[] fields, LanguageChange languageChange)
+    public boolean validateMove(int field, ArrayList<Integer> fields, LanguageChange languageChange)
     {
         GameOutput out = new GameOutput(languageChange);
         boolean validmove = true;
         if((field < 1 || field > 9)
-            || ((field == 1) && (fields[0] !=0))
-            || ((field == 2) && (fields[1] !=0))
-            || ((field == 3) && (fields[2] !=0))
-            || ((field == 4) && (fields[3] !=0))
-            || ((field == 5) && (fields[4] !=0))
-            || ((field == 6) && (fields[5] !=0))
-            || ((field == 7) && (fields[6] !=0))
-            || ((field == 8) && (fields[7] !=0))
-            || ((field == 9) && (fields[8] !=0)))
+            || ((field == 1) && (fields.get(0) !=0))
+            || ((field == 2) && (fields.get(1) !=0))
+            || ((field == 3) && (fields.get(2) !=0))
+            || ((field == 4) && (fields.get(3) !=0))
+            || ((field == 5) && (fields.get(4) !=0))
+            || ((field == 6) && (fields.get(5) !=0))
+            || ((field == 7) && (fields.get(6) !=0))
+            || ((field == 8) && (fields.get(7) !=0))
+            || ((field == 9) && (fields.get(8) !=0)))
         {
             validmove = false;
         }
@@ -55,74 +56,43 @@ public class GameLogic
      * 
      * @param
      */
-    public int checkGameState(int[] fields, int turnCount)
+    public int checkGameState(ArrayList<Integer> fields, int turnCount)
     {
         int winningstatus = 0;
-        if (fields[0] == 1 && fields[1] == 1 && fields[2] == 1) // horizontal, top row, player one
+        int player = turnCount % 2 + 1;
+        if (fields.get(0) == player && fields.get(1) == player && fields.get(2) == player) // horizontal, top row
         {
-            winningstatus = 2;
+            winningstatus = player + 1;
         }
-        else if (fields[0] == 2 && fields[1] == 2 && fields[2] == 2) // horizontal, top row, player two
+        else if (fields.get(3) == player && fields.get(4) == player && fields.get(5) == player) // horizontal, middle row
         {
-            winningstatus = 3;
+            winningstatus = player + 1;
         }
-        else if (fields[3] == 1 && fields[4] == 1 && fields[5] == 1) // horizontal, middle row, player one
+        else if (fields.get(6) == player && fields.get(7) == player && fields.get(8) == player) // horizontal, bottom row
         {
-            winningstatus = 2;
+            winningstatus = player + 1;
         }
-        else if (fields[3] == 2 && fields[4] == 2 && fields[5] == 2) // horizontal, middle row, player two
+        else if (fields.get(0) == player && fields.get(3) == player && fields.get(6) == player) // vertical, first row
         {
-            winningstatus = 3;
+            winningstatus = player + 1;
         }
-        else if (fields[6] == 1 && fields[7] == 1 && fields[8] == 1) // horizontal, bottom row, player one
+        else if (fields.get(1) == player && fields.get(4) == player && fields.get(7) == player) // vertical, second row
         {
-            winningstatus = 2;
+            winningstatus = player + 1;
         }
-        else if (fields[6] == 2 && fields[7] == 2 && fields[8] == 2) // horizontal, bottom row, player two
+        else if (fields.get(2) == player && fields.get(5) == player && fields.get(8) == player) // vertical, third row
         {
-            winningstatus = 3;
+            winningstatus = player + 1;
         }
-        else if (fields[0] == 1 && fields[3] == 1 && fields[6] == 1) // vertical, first row, player one
+        else if (fields.get(0) == player && fields.get(4) == player && fields.get(8) == player) // diagonally, top left to bottom right
         {
-            winningstatus = 2;
+            winningstatus = player + 1;
         }
-        else if (fields[0] == 2 && fields[3] == 2 && fields[6] == 2) // vertical, first row, player two
+        else if (fields.get(2) == player && fields.get(4) == player && fields.get(6) == player)  // diagonally, top left to bottom right
         {
-            winningstatus = 3;
+            winningstatus = player + 1;
         }
-        else if (fields[1] == 1 && fields[4] == 1 && fields[7] == 1) // vertical, second row, player one
-        {
-            winningstatus = 2;
-        }
-        else if (fields[1] == 2 && fields[4] == 2 && fields[7] == 2) // vertical, second row, player two
-        {
-            winningstatus = 3;
-        }
-        else if (fields[2] == 1 && fields[5] == 1 && fields[8] == 1) // vertical, third row, player one
-        {
-            winningstatus = 2;
-        }
-        else if (fields[2] == 2 && fields[5] == 2 && fields[8] == 2) // vertical, third row, player two
-        {
-            winningstatus = 3;
-        }
-        else if (fields[0] == 1 && fields[4] == 1 && fields[8] == 1) // diagonally, top left to bottom right, player one
-        {
-            winningstatus = 2;
-        }
-        else if (fields[0] == 2 && fields[4] == 2 && fields[8] == 2)  // diagonally, top left to bottom right, player two
-        {
-            winningstatus = 3;
-        }
-        else if (fields[2] == 1 && fields[4] == 1 && fields[6] == 1) // diagonally, top right to bottom left, player one
-        {
-            winningstatus = 2;
-        }
-        else if (fields[2] == 2 && fields[4] == 2 && fields[6] == 2) // diagonally, top right to bottom left, player two
-        {
-            winningstatus = 3;
-        }
-        else if (turnCount == 8)
+        else if (turnCount == 8) // draw state
         {
             winningstatus = 1;
         }

@@ -12,20 +12,12 @@
  * @author Yves Brändli, Nadine Moser, Robin Meier
  * @version 1.0
  */
-
+import java.util.ArrayList;
 public class GameOutput
 {
-    private String fieldsymbol1;
-    private String fieldsymbol2;
-    private String fieldsymbol3;
-    private String fieldsymbol4;
-    private String fieldsymbol5;
-    private String fieldsymbol6;
-    private String fieldsymbol7;
-    private String fieldsymbol8;
-    private String fieldsymbol9;
     private LanguageChange language;
     private String player;
+    private ArrayList<Character> fieldsymbol;
     /*
      * Constructor for the GameOutput class.
      * 
@@ -33,15 +25,10 @@ public class GameOutput
      */
     public GameOutput(LanguageChange languageChange)
     {
-        fieldsymbol1 = "-";
-        fieldsymbol2 = "-";
-        fieldsymbol3 = "-";
-        fieldsymbol4 = "-";
-        fieldsymbol5 = "-";
-        fieldsymbol6 = "-";
-        fieldsymbol7 = "-";
-        fieldsymbol8 = "-";
-        fieldsymbol9 = "-";
+        fieldsymbol = new ArrayList<>();
+        for (int i = 0; i < 9; i++){
+            fieldsymbol.add('-');
+        }
         language = languageChange;
         player = "Spieler eins";
     }
@@ -65,76 +52,22 @@ public class GameOutput
     /*
      * Prints the board after every turn.
      */    
-    public void printBoard(int[] fields)
+    public void printBoard(ArrayList<Integer> fields)
     {
-        if (fields[0] == 1)
-        {
-            fieldsymbol1 = "X";   
-        } else if (fields[0] == 2)
-        {
-            fieldsymbol1 = "O"; 
+        for(int i = 0; i < 9; i++){
+            if (fields.get(i) == 1)
+            {
+                fieldsymbol.set(i, 'X');   
+            }  else if (fields.get(i) == 2)
+            {
+                fieldsymbol.set(i, 'O');
+            }
         }
-        if (fields[1] == 1)
-        {
-            fieldsymbol2 = "X";   
-        } else if (fields[1] == 2)
-        {
-            fieldsymbol2 = "O"; 
-        }
-        if (fields[2] == 1)
-        {
-            fieldsymbol3 = "X";   
-        } else if (fields[2] == 2)
-        {
-            fieldsymbol3 = "O"; 
-        }
-        if (fields[3] == 1)
-        {
-            fieldsymbol4 = "X";   
-        } else if (fields[3] == 2)
-        {
-            fieldsymbol4 = "O"; 
-        }
-        if (fields[4] == 1)
-        {
-            fieldsymbol5 = "X";   
-        } else if (fields[4] == 2)
-        {
-            fieldsymbol5 = "O"; 
-        }
-        if (fields[5] == 1)
-        {
-            fieldsymbol6 = "X";   
-        } else if (fields[5] == 2)
-        {
-            fieldsymbol6 = "O"; 
-        }
-        if (fields[6] == 1)
-        {
-            fieldsymbol7 = "X";   
-        } else if (fields[6] == 2)
-        {
-            fieldsymbol7 = "O"; 
-        }
-        if (fields[7] == 1)
-        {
-            fieldsymbol8 = "X";   
-        } else if (fields[7] == 2)
-        {
-            fieldsymbol8 = "O"; 
-        }
-        if (fields[8] == 1)
-        {
-            fieldsymbol9 = "X";   
-        } else if (fields[8] == 2)
-        {
-            fieldsymbol9 = "O"; 
-        }
-        System.out.println(fieldsymbol1 + " | " + fieldsymbol2 + " | " + fieldsymbol3);
+        System.out.println(fieldsymbol.get(0) + " | " + fieldsymbol.get(1) + " | " + fieldsymbol.get(2));
         System.out.println("---------");
-        System.out.println(fieldsymbol4 + " | " + fieldsymbol5 + " | " + fieldsymbol6);
+        System.out.println(fieldsymbol.get(3) + " | " + fieldsymbol.get(4) + " | " + fieldsymbol.get(5));
         System.out.println("---------");
-        System.out.println(fieldsymbol7 + " | " + fieldsymbol8 + " | " + fieldsymbol9);
+        System.out.println(fieldsymbol.get(6) + " | " + fieldsymbol.get(7) + " | " + fieldsymbol.get(8));
         System.out.println();
     }
 
@@ -207,11 +140,11 @@ public class GameOutput
             }
             if (currentGameState == 2) // 2 Stands for a winning condition for Player one.
             { player = "Spieler Eins";
-              System.out.println(player + ", hat das Spiel gewonnen");
+                System.out.println(player + ", hat das Spiel gewonnen");
             }
             if (currentGameState == 3) // 3 Stands for a winning condition for Player two.
             { player = "Spieler Zwei";
-              System.out.println(player + ", hat das Spiel gewonnen");
+                System.out.println(player + ", hat das Spiel gewonnen");
             }
         }
         if(language.getIsGerman() == false)
@@ -221,18 +154,18 @@ public class GameOutput
             }
             if (currentGameState == 2) // 2 Stands for a winning condition for Player one.
             { player = "Player one";
-              System.out.println(player + ", has won the game.");
+                System.out.println(player + ", has won the game.");
             }
             if (currentGameState == 3) // 3 Stands for a winning condition for Player two.
             { player = "Player two";
-              System.out.println(player + ", has won the game");
+                System.out.println(player + ", has won the game");
             }
         }
     }
 
     public void printWrongMove()
     {
-       if(language.getIsGerman() == true)
+        if(language.getIsGerman() == true)
         {
             System.out.println("Zug ungültig. Wählen sie bitte einen freien Sektor auf dem Spielfeld.");
         }

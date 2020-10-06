@@ -8,10 +8,10 @@
 * @author Yves Brändli, Nadine Moser, Robin Meier
 * @version 1.0
 */
-
+import java.util.ArrayList;
 public class GameBoard
 {
-    private int[] fields;
+    private ArrayList<Integer> fields;
     private int turnCount;
     private GameOutput gameOutput;
     private GameLogic gameLogic;
@@ -24,11 +24,7 @@ public class GameBoard
     */
     public GameBoard()
     { 
-        fields = new int[9];
-        turnCount = 0;
-        languageChange = new LanguageChange();
-        gameOutput = new GameOutput(languageChange);
-        gameLogic = new GameLogic();
+        
     }
     
     /*
@@ -38,6 +34,14 @@ public class GameBoard
     */
     public void startGame()
     { 
+        turnCount = 0;
+        languageChange = new LanguageChange();
+        gameOutput = new GameOutput(languageChange);
+        gameLogic = new GameLogic();
+        fields = new ArrayList<>();
+        for (int i = 0; i<9; i++){
+            fields.add(0);
+        }
         gameOutput.printWelcome();
         gameOutput.printBoard(fields);
     }
@@ -82,7 +86,7 @@ public class GameBoard
     private void saveMove(int field){
         int player = (turnCount % 2) + 1;
         int index = field-1;
-        fields[index] = player;
+        fields.set(index, player);
     }
     
     public void changeLanguage(){
