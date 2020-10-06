@@ -55,72 +55,76 @@ public class GameLogic
      * 
      * @param
      */
-    public int checkGameState(int[] fields)
+    public int checkGameState(int[] fields, int turnCount)
     {
         int winningstatus = 0;
         if (fields[0] == 1 && fields[1] == 1 && fields[2] == 1) // horizontal, top row, player one
         {
             winningstatus = 2;
         }
-        if (fields[0] == 2 && fields[1] == 2 && fields[2] == 2) // horizontal, top row, player two
+        else if (fields[0] == 2 && fields[1] == 2 && fields[2] == 2) // horizontal, top row, player two
         {
             winningstatus = 3;
         }
-        if (fields[3] == 1 && fields[4] == 1 && fields[5] == 1) // horizontal, middle row, player one
+        else if (fields[3] == 1 && fields[4] == 1 && fields[5] == 1) // horizontal, middle row, player one
         {
             winningstatus = 2;
         }
-        if (fields[3] == 2 && fields[4] == 2 && fields[5] == 2) // horizontal, middle row, player two
+        else if (fields[3] == 2 && fields[4] == 2 && fields[5] == 2) // horizontal, middle row, player two
         {
             winningstatus = 3;
         }
-        if (fields[6] == 1 && fields[7] == 1 && fields[8] == 1) // horizontal, bottom row, player one
+        else if (fields[6] == 1 && fields[7] == 1 && fields[8] == 1) // horizontal, bottom row, player one
         {
             winningstatus = 2;
         }
-        if (fields[6] == 2 && fields[7] == 2 && fields[8] == 2) // horizontal, bottom row, player two
+        else if (fields[6] == 2 && fields[7] == 2 && fields[8] == 2) // horizontal, bottom row, player two
         {
             winningstatus = 3;
         }
-        if (fields[0] == 1 && fields[3] == 1 && fields[6] == 1) // vertical, first row, player one
+        else if (fields[0] == 1 && fields[3] == 1 && fields[6] == 1) // vertical, first row, player one
         {
             winningstatus = 2;
         }
-        if (fields[0] == 2 && fields[3] == 2 && fields[6] == 2) // vertical, first row, player two
+        else if (fields[0] == 2 && fields[3] == 2 && fields[6] == 2) // vertical, first row, player two
         {
             winningstatus = 3;
         }
-        if (fields[1] == 1 && fields[4] == 1 && fields[7] == 1) // vertical, second row, player one
+        else if (fields[1] == 1 && fields[4] == 1 && fields[7] == 1) // vertical, second row, player one
         {
             winningstatus = 2;
         }
-        if (fields[1] == 2 && fields[4] == 2 && fields[7] == 2) // vertical, second row, player two
+        else if (fields[1] == 2 && fields[4] == 2 && fields[7] == 2) // vertical, second row, player two
         {
             winningstatus = 3;
         }
-        if (fields[2] == 1 && fields[5] == 1 && fields[8] == 1) // vertical, third row, player one
+        else if (fields[2] == 1 && fields[5] == 1 && fields[8] == 1) // vertical, third row, player one
         {
             winningstatus = 2;
         }
-        if (fields[2] == 2 && fields[5] == 2 && fields[8] == 2) // vertical, third row, player two
+        else if (fields[2] == 2 && fields[5] == 2 && fields[8] == 2) // vertical, third row, player two
         {
             winningstatus = 3;
         }
-        if (fields[0] == 1 && fields[4] == 1 && fields[8] == 1) // diagonally, top left to bottom right, player one
+        else if (fields[0] == 1 && fields[4] == 1 && fields[8] == 1) // diagonally, top left to bottom right, player one
         {
             winningstatus = 2;
         }
-        if (fields[0] == 2 && fields[4] == 2 && fields[8] == 2)  // diagonally, top left to bottom right, player two
+        else if (fields[0] == 2 && fields[4] == 2 && fields[8] == 2)  // diagonally, top left to bottom right, player two
         {
             winningstatus = 3;
         }
-        if (fields[2] == 1 && fields[4] == 1 && fields[6] == 1) // diagonally, top right to bottom left, player one
+        else if (fields[2] == 1 && fields[4] == 1 && fields[6] == 1) // diagonally, top right to bottom left, player one
         {
             winningstatus = 2;
         }
-        if (fields[2] == 2 && fields[4] == 2 && fields[6] == 2) // diagonally, top right to bottom left, player two
+        else if (fields[2] == 2 && fields[4] == 2 && fields[6] == 2) // diagonally, top right to bottom left, player two
         {
             winningstatus = 3;
+        }
+        else if (turnCount == 8)
+        {
+            winningstatus = 1;
         }
         return winningstatus;
     }

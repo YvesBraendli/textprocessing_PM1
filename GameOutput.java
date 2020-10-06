@@ -130,11 +130,11 @@ public class GameOutput
         {
             fieldsymbol9 = "O"; 
         }
-        System.out.println(fieldsymbol1 + " * " + fieldsymbol2 + " * " + fieldsymbol3);
-        System.out.println("* * * * *");
-        System.out.println(fieldsymbol4 + " * " + fieldsymbol5 + " * " + fieldsymbol6);
-        System.out.println("* * * * *");
-        System.out.println(fieldsymbol7 + " * " + fieldsymbol8 + " * " + fieldsymbol9);
+        System.out.println(fieldsymbol1 + " | " + fieldsymbol2 + " | " + fieldsymbol3);
+        System.out.println("---------");
+        System.out.println(fieldsymbol4 + " | " + fieldsymbol5 + " | " + fieldsymbol6);
+        System.out.println("---------");
+        System.out.println(fieldsymbol7 + " | " + fieldsymbol8 + " | " + fieldsymbol9);
         System.out.println();
     }
 

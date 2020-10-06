@@ -54,7 +54,7 @@ public class GameBoard
         if(isValidMove){
             saveMove(field);
             gameOutput.printBoard(fields);
-            int currentGameState = gameLogic.checkGameState(fields);
+            int currentGameState = gameLogic.checkGameState(fields, turnCount);
             gameOutput.printGameState(currentGameState);
             if(currentGameState > 0)
             {

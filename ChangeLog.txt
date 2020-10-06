@@ -14,13 +14,14 @@ Request[Done] - nextMove() should not have the check if a field is beetween 1-9,
 	
 
 Bug - Player Turn request wrong way around.
-Bug - Draw State not in checkGameState()
 
+Bug[Fixed] - Draw State not in checkGameState()
+	Added else if to check for turnCount == 8
 Bug[Fixed] - validateMove(), int player is not used
 	Removed parameter
 Bug[Fixed] - Invalid move message is sent, but field gets overwritten anyways
 	Changed validateMove method to be true by default and set to false if condition is met
 Bug[Fixed] - "Spieler" two has won the game
-	Changed "Spieler" to "Player"
+	Chaned "Spieler" to "Player"
 
 

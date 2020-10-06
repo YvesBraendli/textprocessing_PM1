@@ -26,16 +26,16 @@ public class GameSimulation
     public void playGame()
     {
         /* Gametype 1: Player One Wins */
-        gameBoard.startGame();
-        gameBoard.nextMove(1);
-        gameBoard.nextMove(2);
-        gameBoard.changeLanguage();
-        gameBoard.nextMove(5);
-        gameBoard.nextMove(9);
-        gameBoard.nextMove(7);
-        gameBoard.changeLanguage();
-        gameBoard.nextMove(4);
-        gameBoard.nextMove(3);
+        // gameBoard.startGame();
+        // gameBoard.nextMove(1);
+        // gameBoard.nextMove(2);
+        // gameBoard.changeLanguage();
+        // gameBoard.nextMove(5);
+        // gameBoard.nextMove(9);
+        // gameBoard.nextMove(7);
+        // gameBoard.changeLanguage();
+        // gameBoard.nextMove(4);
+        // gameBoard.nextMove(3);
         
         /* Gametype 2: Player Two Wins */
         // gameBoard.startGame();
@@ -52,16 +52,16 @@ public class GameSimulation
         // gameBoard.nextMove(7);
         
         /* Gametype 3: Draw */
-        // gameBoard.startGame();
-        // gameBoard.nextMove(1);
-        // gameBoard.nextMove(3);
-        // gameBoard.nextMove(2);
-        // gameBoard.nextMove(9);
-        // gameBoard.nextMove(6);
-        // gameBoard.nextMove(8);
-        // gameBoard.nextMove(7);
-        // gameBoard.nextMove(4);
-        // gameBoard.nextMove(5); 
+        gameBoard.startGame();
+        gameBoard.nextMove(1);
+        gameBoard.nextMove(3);
+        gameBoard.nextMove(2);
+        gameBoard.nextMove(9);
+        gameBoard.nextMove(6);
+        gameBoard.nextMove(8);
+        gameBoard.nextMove(7);
+        gameBoard.nextMove(4);
+        gameBoard.nextMove(5); 
         
         /* Gametype 4: Errorhandling Situations */
         // gameBoard.startGame();
