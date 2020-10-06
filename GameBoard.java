@@ -64,7 +64,7 @@ public class GameBoard
             turnCount++;
             gameOutput.printLanguageChangeRequest();
             //todo: printmoverequest, find better place
-            boolean isPlayerOne = turnCount % 2 == 1;
+            boolean isPlayerOne = turnCount % 2 == 0;
             gameOutput.printMoveRequest(isPlayerOne);
         }
         else {

@@ -2,19 +2,18 @@
 
 Request - change Arrays to ArrayLists. Arrays are in Week 5
 Request - printBoard make seperate method to return X or O (removes redundant code)
-Request - nextMove() retry message
-Request - make player a datafield
-Request - Add capability to reset game
+Request - make player a datafield in GameBoard
+Request - Clear gameboard at startGame method
 
 Request[Done] - isplayerone in printMoveRequest -> isPlayerOne
 Request[Done] - Initialize turnCount datafield
 Request[Done] - nextMove() should not have the check if a field is beetween 1-9, should be in validateMove
-	moved input size validation to validateMove
+	
 	
 	
 
-Bug - Player Turn request wrong way around.
-
+Bug[Fixed] - Player Turn request wrong way around.
+	Changed turnCount % 2 == 1 -> turnCount % 2 == 0
 Bug[Fixed] - Draw State not in checkGameState()
 	Added else if to check for turnCount == 8
 Bug[Fixed] - validateMove(), int player is not used

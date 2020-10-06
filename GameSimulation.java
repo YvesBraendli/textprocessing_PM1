@@ -52,29 +52,29 @@ public class GameSimulation
         // gameBoard.nextMove(7);
         
         /* Gametype 3: Draw */
-        gameBoard.startGame();
-        gameBoard.nextMove(1);
-        gameBoard.nextMove(3);
-        gameBoard.nextMove(2);
-        gameBoard.nextMove(9);
-        gameBoard.nextMove(6);
-        gameBoard.nextMove(8);
-        gameBoard.nextMove(7);
-        gameBoard.nextMove(4);
-        gameBoard.nextMove(5); 
-        
-        /* Gametype 4: Errorhandling Situations */
         // gameBoard.startGame();
         // gameBoard.nextMove(1);
-        // gameBoard.nextMove(1); // Trying to overwrite others player move
-        // gameBoard.nextMove(2); // Making correct move after wrong one
-        // gameBoard.nextMove(-10); // Negativ out of bounds move
-        // gameBoard.nextMove(99); // Positive out of bounds move
-        // gameBoard.nextMove(3); // Making correct move after wrong move
-        
-        // gameBoard.nextMove(5); // Finishing game
-        // gameBoard.nextMove(4);
+        // gameBoard.nextMove(3);
+        // gameBoard.nextMove(2);
+        // gameBoard.nextMove(9);
+        // gameBoard.nextMove(6);
         // gameBoard.nextMove(8);
+        // gameBoard.nextMove(7);
+        // gameBoard.nextMove(4);
+        // gameBoard.nextMove(5); 
+        
+        /* Gametype 4: Errorhandling Situations */
+        gameBoard.startGame();
+        gameBoard.nextMove(1);
+        gameBoard.nextMove(1); // Trying to overwrite others player move
+        gameBoard.nextMove(2); // Making correct move after wrong one
+        gameBoard.nextMove(-10); // Negativ out of bounds move
+        gameBoard.nextMove(99); // Positive out of bounds move
+        gameBoard.nextMove(3); // Making correct move after wrong move
+        
+        gameBoard.nextMove(5); // Finishing game
+        gameBoard.nextMove(4);
+        gameBoard.nextMove(8);
         
         
     }
