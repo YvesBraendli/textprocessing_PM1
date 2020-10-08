@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class GameOutput
 {
     private LanguageController languageController;
-    private String player;
     private ArrayList<Character> fieldsymbol;
     /*
      * Constructor for the GameOutput class.
@@ -30,7 +29,6 @@ public class GameOutput
             fieldsymbol.add('-');
         }
         this.languageController = languageController;
-        player = "Spieler eins";
     }
 
     /**
@@ -39,7 +37,7 @@ public class GameOutput
     public void printWelcome()
     {
         System.out.println("***************************************************************");
-        System.out.println(languageController.translateWelcomeText(player));
+        System.out.println(languageController.translateWelcomeText());
         System.out.println("***************************************************************");
     }
 

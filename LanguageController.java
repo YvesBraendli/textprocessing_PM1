@@ -45,9 +45,11 @@ public class LanguageController
      * Translates a Welcome message
      * @param   player  to indicate witch player is making the first move
      */
-    public String translateWelcomeText(String player){
+    public String translateWelcomeText(){
+        String player;
         if(getIsGerman() == true)
         {
+            player = "Spieler eins";
             return "Herzlich Willkommen zu ihrem neuen Spiel. " + player + ", bitte tätigen sie ihren ersten Spielzug.";
         }
         else
