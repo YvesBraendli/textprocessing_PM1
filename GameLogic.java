@@ -26,9 +26,9 @@ public class GameLogic
      *  
      *  @param 
      */
-    public boolean validateMove(int field, ArrayList<Integer> fields, LanguageChange languageChange)
+    public boolean validateMove(int field, ArrayList<Integer> fields, LanguageController languageController)
     {
-        GameOutput out = new GameOutput(languageChange);
+        GameOutput out = new GameOutput(languageController);
         boolean validmove = true;
         if((field < 1 || field > 9)
             || ((field == 1) && (fields.get(0) !=0))

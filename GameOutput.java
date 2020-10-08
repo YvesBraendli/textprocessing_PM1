@@ -15,7 +15,7 @@
 import java.util.ArrayList;
 public class GameOutput
 {
-    private LanguageChange language;
+    private LanguageController languageController;
     private String player;
     private ArrayList<Character> fieldsymbol;
     /*
@@ -23,33 +23,27 @@ public class GameOutput
      * 
      * @param empty
      */
-    public GameOutput(LanguageChange languageChange)
+    public GameOutput(LanguageController languageController)
     {
         fieldsymbol = new ArrayList<>();
         for (int i = 0; i < 9; i++){
             fieldsymbol.add('-');
         }
-        language = languageChange;
+        this.languageController = languageController;
         player = "Spieler eins";
     }
 
-    /*
-     * Prints out a welcome message at the start of the game.
+    /**
+     * Prints out a welcome message.
      */    
     public void printWelcome()
     {
-        if(language.getIsGerman() == true)
-        {
-            System.out.println("Herzlich Willkommen zu ihrem neuen Spiel. " + player + ", bitte tätigen sie ihren ersten Spielzug.");
-        }
-        if(language.getIsGerman() == false)
-        {
-            player = "Player one";
-            System.out.println("Welcome to your new Game. " + player + ", please select your first turn.");
-        }
+        System.out.println("***************************************************************");
+        System.out.println(languageController.translateWelcomeText(player));
+        System.out.println("***************************************************************");
     }
 
-    /*
+    /**
      * Prints the board after every turn.
      */    
     public void printBoard(ArrayList<Integer> fields)
@@ -76,14 +70,7 @@ public class GameOutput
      */    
     public void printLanguageChangeRequest()
     {
-        if(language.getIsGerman() == true)
-        {
-            System.out.println("Möchten sie die Sprache auf Englisch wechseln?");
-        }
-        if(language.getIsGerman() == false)
-        {
-            System.out.println("Would you like to switch the language to german?");
-        }
+        System.out.println(languageController.translateLanguageChangeRequestText());
     }
 
     /*
@@ -91,14 +78,7 @@ public class GameOutput
      */
     public void printLanguageChange()
     {
-        if(language.getIsGerman() == true)
-        {
-            System.out.println("Sprachwechsel auf Deutsch erfolgreich.");
-        }
-        if(language.getIsGerman() == false)
-        {
-            System.out.println("Language change to english successful.");
-        }
+        System.out.println(languageController.translateLanguageChangeText());
     }
 
     /*
@@ -106,26 +86,7 @@ public class GameOutput
      */    
     public void printMoveRequest(boolean isPlayerOne)
     {
-        if(language.getIsGerman() == true)
-        {
-            if (isPlayerOne == true)
-            { player = "Spieler Eins";
-            }
-            if (isPlayerOne == false)
-            { player = "Spieler Zwei";
-            }
-            System.out.println(player + ", bitte geben sie ihren nächsten Spielzug ein.");
-        }
-        if(language.getIsGerman() == false)
-        {
-            if (isPlayerOne == true)
-            { player = "Player one";
-            }
-            if (isPlayerOne == false)
-            { player = "Player two";
-            }
-            System.out.println(player + ", please choose your next turn.");
-        }
+        System.out.println(languageController.translateMoveRequestText(isPlayerOne));
     }
 
     /*
@@ -133,45 +94,11 @@ public class GameOutput
      */    
     public void printGameState(int currentGameState)
     {
-        if(language.getIsGerman() == true)
-        {
-            if (currentGameState == 1) // 1 Stands for a draw condition.
-            { System.out.println("Sie haben ein Unentschieden erreicht. Herzliche Gratulation an beide Spieler.");
-            }
-            if (currentGameState == 2) // 2 Stands for a winning condition for Player one.
-            { player = "Spieler Eins";
-                System.out.println(player + ", hat das Spiel gewonnen");
-            }
-            if (currentGameState == 3) // 3 Stands for a winning condition for Player two.
-            { player = "Spieler Zwei";
-                System.out.println(player + ", hat das Spiel gewonnen");
-            }
-        }
-        if(language.getIsGerman() == false)
-        {
-            if (currentGameState == 1) // 1 Stands for a draw condition.
-            { System.out.println("You've reached a draw situation. Congratulations to both players.");
-            }
-            if (currentGameState == 2) // 2 Stands for a winning condition for Player one.
-            { player = "Player one";
-                System.out.println(player + ", has won the game.");
-            }
-            if (currentGameState == 3) // 3 Stands for a winning condition for Player two.
-            { player = "Player two";
-                System.out.println(player + ", has won the game");
-            }
-        }
+        System.out.println(languageController.translateCurrentGameStateText(currentGameState));       
     }
 
     public void printWrongMove()
     {
-        if(language.getIsGerman() == true)
-        {
-            System.out.println("Zug ungültig. Wählen sie bitte einen freien Sektor auf dem Spielfeld.");
-        }
-        if(language.getIsGerman() == false)
-        {
-            System.out.println("Move invalid. Please select a free field on the gameboard.");
-        } 
+        System.out.println(languageController.translateWrongMoveText());
     }
 }

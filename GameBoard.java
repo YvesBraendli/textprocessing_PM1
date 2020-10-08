@@ -15,7 +15,7 @@ public class GameBoard
     private int turnCount;
     private GameOutput gameOutput;
     private GameLogic gameLogic;
-    private LanguageChange languageChange;
+    private LanguageController languageController;
     
     /*
     * Constructor for the GameBoard class.
@@ -27,16 +27,14 @@ public class GameBoard
         
     }
     
-    /*
+    /**
     * Prints out an empty field and asks for a players move.
-    * 
-    * @param 
     */
     public void startGame()
     { 
         turnCount = 0;
-        languageChange = new LanguageChange();
-        gameOutput = new GameOutput(languageChange);
+        languageController = new LanguageController();
+        gameOutput = new GameOutput(languageController);
         gameLogic = new GameLogic();
         fields = new ArrayList<>();
         for (int i = 0; i<9; i++){
@@ -46,7 +44,7 @@ public class GameBoard
         gameOutput.printBoard(fields);
     }
     
-    /*
+    /**
     * Takes user input for one of the nine fields.
     * 
     * @param   move    a value between 1-9 to fill a field on the board.
@@ -54,7 +52,7 @@ public class GameBoard
     */
     public void nextMove(int field){
         
-        boolean isValidMove = gameLogic.validateMove(field, fields, languageChange);
+        boolean isValidMove = gameLogic.validateMove(field, fields, languageController);
         if(isValidMove){
             saveMove(field);
             gameOutput.printBoard(fields);
@@ -67,7 +65,6 @@ public class GameBoard
             }
             turnCount++;
             gameOutput.printLanguageChangeRequest();
-            //todo: printmoverequest, find better place
             boolean isPlayerOne = turnCount % 2 == 0;
             gameOutput.printMoveRequest(isPlayerOne);
         }
@@ -90,7 +87,7 @@ public class GameBoard
     }
     
     public void changeLanguage(){
-        languageChange.changeLanguage();
+        languageController.changeLanguage();
         gameOutput.printLanguageChange();
     }
 }
