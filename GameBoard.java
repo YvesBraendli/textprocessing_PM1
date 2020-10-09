@@ -9,6 +9,7 @@
 * @version 1.0
 */
 import java.util.ArrayList;
+
 public class GameBoard
 {
     private ArrayList<Integer> fields;
@@ -40,7 +41,8 @@ public class GameBoard
         for (int i = 0; i<9; i++){
             fields.add(0);
         }
-        gameOutput.printWelcome();
+        int currentPlayer = 1;
+        gameOutput.printWelcome(currentPlayer);
         gameOutput.printBoard(fields);
     }
     
@@ -50,9 +52,8 @@ public class GameBoard
     * @param   move    a value between 1-9 to fill a field on the board.
     * @param   player  either "X" or "O" to indicate, which player is making a move.
     */
-    public void nextMove(int field){
-        
-        boolean isValidMove = gameLogic.validateMove(field, fields, languageController);
+    public void nextMove(int field){       
+        boolean isValidMove = gameLogic.validateMove(field, fields);
         if(isValidMove){
             saveMove(field);
             gameOutput.printBoard(fields);
@@ -64,9 +65,9 @@ public class GameBoard
                 return;
             }
             turnCount++;
+            int currentPlayer = (turnCount % 2) + 1;
             gameOutput.printLanguageChangeRequest();
-            boolean isPlayerOne = turnCount % 2 == 0;
-            gameOutput.printMoveRequest(isPlayerOne);
+            gameOutput.printMoveRequest(currentPlayer);
         }
         else {
             gameOutput.printWrongMove();
@@ -81,9 +82,9 @@ public class GameBoard
     * @param   player  either "X" or "O" to indicate, which player is making a move.
     */
     private void saveMove(int field){
-        int player = (turnCount % 2) + 1;
+        int currentPlayer = (turnCount % 2) + 1;
         int index = field-1;
-        fields.set(index, player);
+        fields.set(index, currentPlayer);
     }
     
     public void changeLanguage(){

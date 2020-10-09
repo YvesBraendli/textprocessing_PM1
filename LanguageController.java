@@ -41,12 +41,32 @@ public class LanguageController
         return isGerman;
     }
     
+    public String translatePlayerText(int player){
+        if(getIsGerman() == true)
+        {
+            if(player == 1){
+                return "Spieler eins";
+            }
+            else{
+                return "Spieler zwei";
+            }
+        }
+        else
+        {
+            if(player == 1){
+                return "player one";
+            }
+            else{
+                return "player two";
+            }
+        }
+    }
+        
     /**
      * Translates a Welcome message
      * @param   player  to indicate witch player is making the first move
      */
-    public String translateWelcomeText(){
-        String player;
+    public String translateWelcomeText(String player){
         if(getIsGerman() == true)
         {
             player = "Spieler eins";
@@ -91,31 +111,14 @@ public class LanguageController
      *  Translates a Move Request message
      *  @param  isPlayerOne inidcates if Player One is making the next move
      */
-    public String translateMoveRequestText(boolean isPlayerOne){
-        String currentPlayer;
+    public String translateMoveRequestText(String player){
         if(getIsGerman() == true)
         {
-            if (isPlayerOne == true)
-            { 
-                currentPlayer = "Spieler Eins";
-            }
-            else
-            { 
-                currentPlayer = "Spieler Zwei";
-            }
-            return currentPlayer + ", bitte geben sie ihren nächsten Spielzug ein.";
+            return player + ", bitte geben sie ihren nächsten Spielzug ein.";
         }
         else
         {
-            if (isPlayerOne == true)
-            { 
-                currentPlayer = "Player one";
-            }
-            else
-            { 
-                currentPlayer = "Player two";
-            }
-            return currentPlayer + ", please choose your next turn.";
+            return player + ", please choose your next turn.";
         }
     }
     

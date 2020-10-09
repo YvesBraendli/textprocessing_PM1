@@ -13,6 +13,7 @@
  * @version 1.0
  */
 import java.util.ArrayList;
+
 public class GameOutput
 {
     private LanguageController languageController;
@@ -34,10 +35,11 @@ public class GameOutput
     /**
      * Prints out a welcome message.
      */    
-    public void printWelcome()
+    public void printWelcome(int player)
     {
+        String currentPlayer = languageController.translatePlayerText(player);
         System.out.println("***************************************************************");
-        System.out.println(languageController.translateWelcomeText());
+        System.out.println(languageController.translateWelcomeText(currentPlayer));
         System.out.println("***************************************************************");
     }
 
@@ -82,9 +84,10 @@ public class GameOutput
     /*
      * Prints out a request for a player to make a move.
      */    
-    public void printMoveRequest(boolean isPlayerOne)
+    public void printMoveRequest(int player)
     {
-        System.out.println(languageController.translateMoveRequestText(isPlayerOne));
+        String currentPlayer = languageController.translatePlayerText(player);
+        System.out.println(languageController.translateMoveRequestText(currentPlayer));
     }
 
     /*
