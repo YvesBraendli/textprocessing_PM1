@@ -1,8 +1,10 @@
-/*
+/**
  * This class implements the language change functionality for a game of TicTacToe.
+ * It also is responsible for the language Strings and to return them correctly.
  * The two languages to chose from are english and german.
- * The class has the following functionalities:
- *      switch the language
+ * It can switch between the two languages by changing a boolean.
+ *      
+ *The language is set by default to english.
  *      
  * @author Yves Brändli, Nadine Moser, Robin Meier
  * @version 1.0
@@ -10,37 +12,41 @@
 public class LanguageController
 {
     private boolean isGerman;
-    /*
-     * Constructor for the LanguageChange class.
+    /**
+     * Constructor for the LanguageChange class. Sets the language to english.
      * 
-     * @param isGerman false for english, true for german
      */
     public LanguageController()
     {
         isGerman = false;
     }
 
-    /*
+    /**
      * 
-     * sets the isGerman boolean
+     * sets the isGerman boolean to the reciprocal value.
      * 
-     * @param
      */
     public void changeLanguage(){
         isGerman = !isGerman;
     }
-    
-    /*
+
+    /**
      * 
-     * gets the isGerman boolean
+     * gets the isGerman boolean.
      * 
-     * @param
+     * @return      the boolean to get the information about which language has been choosen.
      */
     public boolean getIsGerman()
     {
         return isGerman;
     }
-    
+
+    /**
+     * translates the Strings Player.
+     * 
+     * @param player        to indicated which player's turn it is.
+     * @return              a String for the players in the selected language.
+     */
     public String translatePlayerText(int player){
         if(getIsGerman() == true)
         {
@@ -61,10 +67,12 @@ public class LanguageController
             }
         }
     }
-        
+
     /**
-     * Translates a Welcome message
-     * @param   player  to indicate witch player is making the first move
+     * Translates a Welcome message.
+     * 
+     * @param player        to indicate which player is making the first move.
+     * @return              a welcome message in the selected language.
      */
     public String translateWelcomeText(String player){
         if(getIsGerman() == true)
@@ -78,9 +86,11 @@ public class LanguageController
             return "Welcome to your new Game. " + player + ", please select your first turn.";
         }
     }
-    
+
     /**
-     * Translates a Language Request message
+     * Translates a Language Request message.
+     * 
+     * @return      a String with the question to change the language in the selected language.
      */
     public String translateLanguageChangeRequestText(){
         if(getIsGerman() == true)
@@ -92,9 +102,11 @@ public class LanguageController
             return "Would you like to switch the language to german?";
         }
     }
-    
+
     /**
-     *  Translates a Language change message
+     *  Translates a Language change message.
+     *  
+     *  @return     a message in the selected language, that the language change was successful.
      */
     public String translateLanguageChangeText(){
         if(getIsGerman() == true)
@@ -106,10 +118,12 @@ public class LanguageController
             return "Language change to english successful.";
         }
     }
-    
+
     /**
-     *  Translates a Move Request message
-     *  @param  isPlayerOne inidcates if Player One is making the next move
+     *  Translates a Move Request message.
+     *  
+     *  @param player       indicates, which player should make the next move.
+     *  @return             a call for the move of the next player.
      */
     public String translateMoveRequestText(String player){
         if(getIsGerman() == true)
@@ -121,10 +135,12 @@ public class LanguageController
             return player + ", please choose your next turn.";
         }
     }
-    
+
     /**
-     * Translates current Game State message
-     * @param   currentGameState    indicates witch state the gameboard currently has. 1 stands for draw, 2 stands for player one is winning, 3 stands for player two is winning.
+     * Translates current Game State message.
+     * 
+     * @param currentGameState      indicates which state the gameboard currently has. 1 stands for draw, 2 stands for player one is winning, 3 stands for player two is winning.
+     * @return                      a message with the current winning or draw states.
      */
     public String translateCurrentGameStateText(int currentGameState){
         String currentPlayer;
@@ -164,9 +180,11 @@ public class LanguageController
         }
         return "";
     }
-    
+
     /**
-     * Translates wrong move message
+     * Translates wrong move message.
+     * 
+     * @return      a message to chose another move in the selected language.
      */
     public String translateWrongMoveText(){
         if(getIsGerman() == true)

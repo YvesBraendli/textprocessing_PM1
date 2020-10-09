@@ -1,27 +1,28 @@
-/*
+import java.util.ArrayList;
+/**
  * This class implements the console outputs for a game of TicTacToe in english and german.
  * The class has the following functionalities:
- *      Print a welcome message
- *      Print the board
- *      Print a request for a language change
- *      Print a messsage if a language change has been made
- *      Print a request for a player to make a move
- *      Print a message for the winner
- *      Print a message in case of a draw
+ *      Print a welcome message.
+ *      Print the board.
+ *      Print a request for a language change.
+ *      Print a messsage if a language change has been made.
+ *      Print a request for a player to make a move.
+ *      Print a message for the winning or draw conditions.
+ *      Print a message in case of a wrong move.
  *           
  * @author Yves Brändli, Nadine Moser, Robin Meier
  * @version 1.0
  */
-import java.util.ArrayList;
+
 
 public class GameOutput
 {
     private LanguageController languageController;
     private ArrayList<Character> fieldsymbol;
-    /*
+    /**
      * Constructor for the GameOutput class.
      * 
-     * @param empty
+     * @param languageController        to set the default language.
      */
     public GameOutput(LanguageController languageController)
     {
@@ -34,6 +35,8 @@ public class GameOutput
 
     /**
      * Prints out a welcome message.
+     * 
+     * @param player        to set the player, who is making a move.
      */    
     public void printWelcome(int player)
     {
@@ -45,6 +48,8 @@ public class GameOutput
 
     /**
      * Prints the board after every turn.
+     * 
+     * @param fields        to get the informations about which player has already made a move on which field.
      */    
     public void printBoard(ArrayList<Integer> fields)
     {
@@ -65,7 +70,7 @@ public class GameOutput
         System.out.println();
     }
 
-    /*
+    /**
      * Prints out a request message for the language change functionality.
      */    
     public void printLanguageChangeRequest()
@@ -73,7 +78,7 @@ public class GameOutput
         System.out.println(languageController.translateLanguageChangeRequestText());
     }
 
-    /*
+    /**
      * Prints out a message if the language change was completed.
      */
     public void printLanguageChange()
@@ -81,7 +86,7 @@ public class GameOutput
         System.out.println(languageController.translateLanguageChangeText());
     }
 
-    /*
+    /**
      * Prints out a request for a player to make a move.
      */    
     public void printMoveRequest(int player)
@@ -90,7 +95,7 @@ public class GameOutput
         System.out.println(languageController.translateMoveRequestText(currentPlayer));
     }
 
-    /*
+    /**
      * Prints out a message if a winning condition has been met or the game ended in a draw.
      */    
     public void printGameState(int currentGameState)
@@ -98,6 +103,9 @@ public class GameOutput
         System.out.println(languageController.translateCurrentGameStateText(currentGameState));       
     }
 
+    /**
+     * Prints out a message if a player made a wrong move.
+     */
     public void printWrongMove()
     {
         System.out.println(languageController.translateWrongMoveText());

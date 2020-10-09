@@ -1,14 +1,15 @@
-/*
-* This class implements a gameboard for a game of TicTacToe.
-* The class has the following functionalities:
-*      Initializing the board itself
-*      Inputing values for the nine fields of the board
-*      Saving the moves into the corresponding datafield
-*      
-* @author Yves Brändli, Nadine Moser, Robin Meier
-* @version 1.0
-*/
 import java.util.ArrayList;
+/**
+ * This class implements a gameboard for a game of TicTacToe.
+ * The class has the following functionalities:
+ *      Initializing the board itself.
+ *      Inputing values for the nine fields of the board.
+ *      Saving the moves into the corresponding datafield.
+ *      
+ * @author Yves Brändli, Nadine Moser, Robin Meier
+ * @version 1.0
+ */
+
 
 public class GameBoard
 {
@@ -17,20 +18,19 @@ public class GameBoard
     private GameOutput gameOutput;
     private GameLogic gameLogic;
     private LanguageController languageController;
-    
-    /*
-    * Constructor for the GameBoard class.
-    * 
-    * @param
-    */
+
+    /**
+     * Empty constructor for the GameBoard class.
+     * 
+     */
     public GameBoard()
     { 
-        
+
     }
-    
+
     /**
-    * Prints out an empty field and asks for a players move.
-    */
+     * Prints out an empty field and asks for a players move.
+     */
     public void startGame()
     { 
         turnCount = 0;
@@ -45,13 +45,12 @@ public class GameBoard
         gameOutput.printWelcome(currentPlayer);
         gameOutput.printBoard(fields);
     }
-    
+
     /**
-    * Takes user input for one of the nine fields.
-    * 
-    * @param   move    a value between 1-9 to fill a field on the board.
-    * @param   player  either "X" or "O" to indicate, which player is making a move.
-    */
+     * Takes user input for one of the nine fields.
+     * 
+     * @param field      indicates in which field the players wants to make her moves.
+     */
     public void nextMove(int field){       
         boolean isValidMove = gameLogic.validateMove(field, fields);
         if(isValidMove){
@@ -74,19 +73,21 @@ public class GameBoard
             gameOutput.printBoard(fields);
         }
     }
-    
-    /*
-    * Saves the move made to one of the nine field datafields after it has been validated.
-    * 
-    * @param   move    a value between 1-9 to fill a field on the board.
-    * @param   player  either "X" or "O" to indicate, which player is making a move.
-    */
+
+    /**
+     * Saves the move made to one of the nine field datafields after it has been validated.
+     * 
+     * @param field      indicates in which field the players wants to make her moves.
+     */
     private void saveMove(int field){
         int currentPlayer = (turnCount % 2) + 1;
         int index = field-1;
         fields.set(index, currentPlayer);
     }
-    
+
+    /**
+     * Changes the language.
+     */
     public void changeLanguage(){
         languageController.changeLanguage();
         gameOutput.printLanguageChange();
