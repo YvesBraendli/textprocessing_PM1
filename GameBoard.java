@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * The class has the following functionalities:
  *      Initializing the board itself.
  *      Inputing values for the nine fields of the board.
- *      Saving the moves into the corresponding datafield.
+ *      Saving the moves into the corresponding field.
  *      
  * @author Yves Brändli, Nadine Moser, Robin Meier
  * @version 1.0
@@ -48,6 +48,8 @@ public class GameBoard
 
     /**
      * Takes user input for one of the nine fields.
+     * User input gets sent to get checked if its valid and a winning gamemove.
+     * If valid it gets saved, else an error message is displayed.
      * 
      * @param field      indicates in which field the players wants to make her moves.
      */
@@ -60,8 +62,7 @@ public class GameBoard
             gameOutput.printGameState(currentGameState);
             if(currentGameState > 0)
             {
-                // todo: gameOutput.printEnding();
-                return;
+                return; //ends the game
             }
             turnCount++;
             int currentPlayer = (turnCount % 2) + 1;
@@ -75,7 +76,7 @@ public class GameBoard
     }
 
     /**
-     * Saves the move made to one of the nine field datafields after it has been validated.
+     * Saves the move made to one of the nine field in the fields ArrayList after it has been validated.
      * 
      * @param field      indicates in which field the players wants to make her moves.
      */

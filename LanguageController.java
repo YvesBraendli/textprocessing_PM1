@@ -23,7 +23,7 @@ public class LanguageController
 
     /**
      * 
-     * sets the isGerman boolean to the reciprocal value.
+     * Sets the isGerman boolean to the reciprocal value.
      * 
      */
     public void changeLanguage(){
@@ -32,7 +32,7 @@ public class LanguageController
 
     /**
      * 
-     * gets the isGerman boolean.
+     * Gets the isGerman boolean.
      * 
      * @return      the boolean to get the information about which language has been choosen.
      */
@@ -42,9 +42,9 @@ public class LanguageController
     }
 
     /**
-     * translates the Strings Player.
+     * Translates the Strings Player.
      * 
-     * @param player        to indicated which player's turn it is.
+     * @param player        indicates which players turn it is.
      * @return              a String for the players in the selected language.
      */
     public String translatePlayerText(int player){
@@ -60,10 +60,10 @@ public class LanguageController
         else
         {
             if(player == 1){
-                return "player one";
+                return "Player one";
             }
             else{
-                return "player two";
+                return "Player two";
             }
         }
     }

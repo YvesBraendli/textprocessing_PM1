@@ -21,6 +21,7 @@ public class GameOutput
     private ArrayList<Character> fieldsymbol;
     /**
      * Constructor for the GameOutput class.
+     * Sets the default field symbols to "-".
      * 
      * @param languageController        to set the default language.
      */
