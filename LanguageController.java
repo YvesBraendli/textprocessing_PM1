@@ -34,7 +34,7 @@ public class LanguageController
      * 
      * Gets the isGerman boolean.
      * 
-     * @return      the boolean to get the information about which language has been choosen.
+     * @return      the boolean to get the information if the language german is choosen, if not the language is english.
      */
     public boolean getIsGerman()
     {
